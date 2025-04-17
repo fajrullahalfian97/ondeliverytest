@@ -1,0 +1,116 @@
+.sidebar {
+  width: 280px;
+  background-color: #1e73be;
+  color: white;
+  height: 100vh;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      object-fit: cover;
+    }
+
+    .username {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+
+    a, .nav-toggle {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      transition: background 0.3s;
+      cursor: pointer;
+
+      mat-icon {
+        font-size: 24px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      &.active mat-icon {
+        color: #1e73be;
+      }
+
+      &:hover, &.active {
+        color: #175c9e;
+        background-color: white;
+      }
+    }
+
+    .nav-group {
+      .nav-sub {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2.5rem;
+
+        a {
+          padding: 0.5rem 0;
+          font-size: 0.85rem;
+        }
+      }
+
+      .expand-icon {
+        margin-left: auto;
+      }
+    }
+    .logout {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      color: white;
+    
+      mat-icon {
+        margin-right: 0.75rem;
+      }
+    
+      &:hover {
+        background-color: #175c9e;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}

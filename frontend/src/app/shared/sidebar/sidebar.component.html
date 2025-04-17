@@ -1,0 +1,39 @@
+<!-- Hamburger only on mobile -->
+<div class="mobile-header">
+  <button class="hamburger" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>ONDELIVERY</span>
+</div>
+
+<!-- Sidebar -->
+<aside class="sidebar" [class.open]="sidebarOpen">
+  <div class="logo">ONDELIVERY</div>
+
+  <div class="profile">
+    <img [src]="user.photo" alt="profile" class="avatar" />
+    <div class="username">{{ user.name }}</div>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="nav-group">
+      <div class="nav-toggle" (click)="roomExpanded = !roomExpanded">
+        <mat-icon>meeting_room</mat-icon>
+        <span>Room management</span>
+        <mat-icon class="expand-icon">{{ roomExpanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </div>
+      <div class="nav-sub" *ngIf="roomExpanded">
+        <a routerLink="/rooms" routerLinkActive="active">Room List</a>
+      </div>
+    </div>
+    <div class="logout" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </div>
+  </nav>
+</aside>

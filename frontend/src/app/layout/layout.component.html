@@ -1,0 +1,10 @@
+<div class="layout-wrapper">
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <app-sidebar [user]="user" [ngClass]="{ 'open': isSidebarOpen }"></app-sidebar>
+  <div class="layout-content" >
+    <router-outlet></router-outlet>
+  </div>
+</div>

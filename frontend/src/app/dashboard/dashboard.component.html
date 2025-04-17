@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+  <h2>DASHBOARD</h2>
+
+  <div class="stats">
+    <mat-card class="stat-card">
+      <h1>{{ totalRooms }}</h1>
+      <p>Total rooms</p>
+    </mat-card>
+    <mat-card class="stat-card">
+      <h1>{{ roomsUsed }}</h1>
+      <p>Rooms used</p>
+    </mat-card>
+    <mat-card class="stat-card">
+      <h1>{{ roomsVacant }}</h1>
+      <p>Rooms vacant</p>
+    </mat-card>
+  </div>
+
+  <mat-card class="summary-card">
+    <h3>Rooms summary</h3>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z1 full-width-table">
+
+      <ng-container matColumnDef="room">
+        <th mat-header-cell *matHeaderCellDef> Room </th>
+        <td mat-cell *matCellDef="let element"> {{element.room}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="employees">
+        <th mat-header-cell *matHeaderCellDef> Employees </th>
+        <td mat-cell *matCellDef="let element"> {{element.employees}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+</div>
